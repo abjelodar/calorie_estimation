@@ -28,13 +28,13 @@ In this project the we analyze different models to estimate the calorie intake o
 - Use the below commands to run the code.
 The command for training a transformer based multi-ingredient input model is:
 ```
-python3 train.py --model_name im2ingr --saving_epochs 20 35 50 --batch_size 32 --finetune_after 0 --learning_rate 1e-4 --scale_learning_rate_cnn 0.001 --save_dir checkpoints/transf_based --image_encoder_type resnet --no_cnn_gradients --recipe1m_dir ${IMAGES_PATH} --load_jpeg --aux_data_dir ${AUX_DATA_DIR} --model_type complexmodel_p --no_warmup --num_epochs $t_epoch --question_answer_path ${QUES_ANS_PATH} --calorie_dataset_path ${CALORIE_DATASET_PATH} --embed_size 512 --transf_layers_units 2 --cnn_reduced --n_att_units 8 --dim_feedforward 1024 --dropout_decoder_i 0.7
+python3 train.py --model_name im2ingr --saving_epochs 20 30 50 --batch_size 32 --finetune_after 0 --learning_rate 1e-4 --scale_learning_rate_cnn 0.001 --save_dir checkpoints/transf_based --image_encoder_type resnet --no_cnn_gradients --recipe1m_dir ${IMAGES_PATH} --load_jpeg --aux_data_dir data --model_type complexmodel_p --no_warmup --num_epochs 50 --question_answer_path data --calorie_dataset_path data --embed_size 512 --transf_layers_units 2 --cnn_reduced --n_att_units 8 --dim_feedforward 1024 --dropout_decoder_i 0.7
 ```
 The command for evaluating a transformer based multi-ingredient input model is:
 ```
-python3 sample.py --model_name im2ingr --batch_size 32 --finetune_after 0 --save_dir checkpoints/transf_based --image_encoder_type resnet --recipe1m_dir ${IMAGES_PATH} --load_jpeg --aux_data_dir ${AUX_DATA_DIR} --model_type complexmodel_p --ckpt_epoch $t_epoch --question_answer_path ${QUES_ANS_PATH} --calorie_dataset_path ${CALORIE_DATASET_PATH} --splits test  --embed_size 512 --transf_layers_units 2 --cnn_reduced --n_att_units 8 --dim_feedforward 1024 --splits test
+python3 sample.py --model_name im2ingr --batch_size 32 --finetune_after 0 --save_dir checkpoints/transf_based --image_encoder_type resnet --recipe1m_dir ${IMAGES_PATH} --load_jpeg --aux_data_dir data --model_type complexmodel_p --ckpt_epoch 30 --question_answer_path data --calorie_dataset_path data --splits test  --embed_size 512 --transf_layers_units 2 --cnn_reduced --n_att_units 8 --dim_feedforward 1024 --splits test
 ```
 The command for training a individual-ingredient input model for calorie (or portion) estimation is:
 ```
-python3 train.py --model_name im2ingr --saving_epochs 10 25 --batch_size 256 --finetune_after 0 --learning_rate 5e-3 --scale_learning_rate_cnn 1.0 --save_dir checkpoints/ingr_based --image_encoder_type resnet_features --no_cnn_gradients --recipe1m_dir ${AUX_DATA_DIR} --load_jpeg --aux_data_dir ${AUX_DATA_DIR} --model_type simple_heirarchitocalorie --no_warmup --subsequent_calorie --num_epochs 50
+python3 train.py --model_name im2ingr --saving_epochs 15 30 --batch_size 256 --finetune_after 0 --learning_rate 5e-3 --scale_learning_rate_cnn 1.0 --save_dir checkpoints/ingr_based --image_encoder_type resnet_features --no_cnn_gradients --recipe1m_dir data --load_jpeg --aux_data_dir data --model_type simple_heirarchitocalorie --no_warmup --subsequent_calorie --num_epochs 50
 ```
