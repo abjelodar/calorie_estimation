@@ -21,6 +21,7 @@ In this project the we analyze different models to estimate the calorie intake o
 - Predictions of ingredients:
     - predictions.pkl, images_predictions.pkl
 - Each of the entries in the above files contains a recipe id that is unique across all files.
+- Download all files from: [data](https://drive.google.com/drive/folders/1uPiidIC3lPm4B0FqABlWcZyClS0fvI80?usp=sharing)
 ## Usage
 - Required packages.
   - Pytorch 1.7.1
