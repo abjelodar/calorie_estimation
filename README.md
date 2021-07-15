@@ -20,7 +20,7 @@ In this project the we analyze different models to estimate the calorie intake o
     - test.json, val.json, train.json
 - Predictions of ingredients:
     - predictions.pkl, images_predictions.pkl
-
+- Each of the entries in the above files contains a recipe id that is unique across all files.
 ## Usage
 - Required packages.
   - Pytorch 1.7.1
